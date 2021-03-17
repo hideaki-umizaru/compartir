@@ -22,7 +22,7 @@ export default {
         alert("シェアする内容を入力してください");
       } else {
         axios
-          .post("https://git.heroku.com/fathomless-ravine-68454.git/api/shares", {
+          .post("https://fathomless-ravine-68454.herokuapp.com/api/shares", {
             user_id: this.$store.state.user.id,
             share: this.share,
           })

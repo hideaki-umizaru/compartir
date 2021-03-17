@@ -53,7 +53,7 @@ export default {
           if (element.user_id == this.$store.state.user.id) {
             axios({
               method: "delete",
-              url: "https://git.heroku.com/fathomless-ravine-68454.git/api/like",
+              url: "https://fathomless-ravine-68454.herokuapp.com/api/like",
               data: {
                 share_id: this.shares[index].item.id,
                 user_id: this.$store.state.user.id,
@@ -69,7 +69,7 @@ export default {
         });
       } else {
         axios
-          .post("https://git.heroku.com/fathomless-ravine-68454.git/api/like", {
+          .post("https://fathomless-ravine-68454.herokuapp.com/api/like", {
             share_id: this.shares[index].item.id,
             user_id: this.$store.state.user.id,
           })
@@ -85,7 +85,7 @@ export default {
     del(index) {
       axios
         .delete(
-          "https://git.heroku.com/fathomless-ravine-68454.git/api/shares/" +
+          "https://fathomless-ravine-68454.herokuapp.com/api/shares/" +
             this.shares[index].item.id
         )
         .then((response) => {
@@ -99,12 +99,12 @@ export default {
     async getShares() {
       let data = [];
       const shares = await axios.get(
-        "https://git.heroku.com/fathomless-ravine-68454.git/api/shares"
+        "https://fathomless-ravine-68454.herokuapp.com/api/shares"
       );
       for (let i = 0; i < shares.data.data.length; i++) {
         await axios
           .get(
-            "https://git.heroku.com/fathomless-ravine-68454.git/api/shares/" +
+            "https://fathomless-ravine-68454.herokuapp.com/api/shares/" +
               shares.data.data[i].id
           )
           .then((response) => {

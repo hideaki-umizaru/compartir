@@ -29,14 +29,14 @@ export default new Vuex.Store({
   actions: {
     async login({ commit }, { email, password }) {
       const responseLogin = await axios.post(
-        "https://git.heroku.com/fathomless-ravine-68454.git/api/login",
+        "https://fathomless-ravine-68454.herokuapp.com/api/login",
         {
           email: email,
           password: password,
         }
       );
       const responseUser = await axios.get(
-        "https://git.heroku.com/fathomless-ravine-68454.git/api/user",
+        "https://fathomless-ravine-68454.herokuapp.com/api/user",
         {
           params: {
             email: email,
@@ -49,7 +49,7 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       axios
-        .post("https://git.heroku.com/fathomless-ravine-68454.git/api/logout", {
+        .post("https://fathomless-ravine-68454.herokuapp.com/api/logout", {
           auth: this.state.auth,
         })
         .then((response) => {

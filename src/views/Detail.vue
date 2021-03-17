@@ -44,7 +44,7 @@ export default {
   methods: {
     send() {
       axios
-        .post("https://git.heroku.com/fathomless-ravine-68454.git/api/comment", {
+        .post("https://fathomless-ravine-68454.herokuapp.com/api/comment", {
           share_id: this.id,
           user_id: this.$store.state.user.id,
           content: this.content,
@@ -60,7 +60,7 @@ export default {
     },
     comment() {
       axios
-        .get("https://git.heroku.com/fathomless-ravine-68454.git/api/shares/" + this.id)
+        .get("https://fathomless-ravine-68454.herokuapp.com/api/shares/" + this.id)
         .then((response) => {
           this.data = response.data.comment;
         });
